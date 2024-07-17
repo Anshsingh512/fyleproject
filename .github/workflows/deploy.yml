@@ -1,27 +1,17 @@
-name: Simple Deployment
+name: SayHello Workflow
 
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
-  deploy:
+  say_hello:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Print Hello User
-        run: |
-          echo '{"message": "Say Hello"}'
-
+      - name: Print SayHello
+        run: echo "SayHello"
