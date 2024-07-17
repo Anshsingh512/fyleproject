@@ -1,4 +1,4 @@
-name: Deploy API
+name: Simple Deployment
 
 on:
   push:
@@ -21,17 +21,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Deploy to VM
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.VM_HOST }}
-          username: ${{ secrets.VM_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            pm2 stop simple-backend-api || true
-            pm2 delete simple-backend-api || true
-            cd /home/azureuser/simple-backend-api
-            git pull origin master
-            npm install
-            pm2 start ecosystem.config.js
+      - name: Print Hello User
+        run: |
+          echo '{"message": "Say Hello"}'
 
