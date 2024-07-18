@@ -67,7 +67,7 @@ jobs:
 
       - name: Deploy application
         run: |
-          ssh -i ~/.ssh/id_rsa azureuser@74.235.107.198 "sudo apt-get update && sudo apt-get install -y nodejs npm && git clone https://github.com/yourusername/yourrepository.git && cd yourrepository && npm install && nohup node server.js > output.log &"
+          ssh -i ~/.ssh/id_rsa azureuser@74.235.107.198 "sudo apt-get update && sudo apt-get install -y nodejs npm && git clone https://github.com/Anshsingh512/fyleproject.git && cd fyleproject && npm install && nohup node server.js > output.log &"
 
       - name: Verify Deployment
         run: curl http://74.235.107.198/sayHello
